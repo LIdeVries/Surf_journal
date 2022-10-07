@@ -3,7 +3,8 @@
 import requests
 import os
 
-api_key = os.getenv("API_KEY")
+user = "Luke"
+api_key = os.getenv("STORMGLASS_API_KEY")
 
 param = "windSpeed"
 # connecting to luno
@@ -12,8 +13,7 @@ response = requests.get(
     params={
         "lat": -34.402377,
         "lng": 18.251149,
-        # "params": ["windSpeed",
-        # ]
+        "params": ["swellDirection", "swellHeight", "swellDirection"],
     },
     headers={"Authorization": api_key},
 )
