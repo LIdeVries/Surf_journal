@@ -3,26 +3,29 @@
 import requests
 import os
 from datetime import date
+import json
 
-user = "Luke"
+
 api_key = os.getenv("WEATHERSTACK_API_KEY")
 
 param = "windSpeed"
-# connecting to luno
+# Connecting
 response = requests.get(
-    "http://api.weatherstack.com/current?access_key="
-    + api_key
-    + "&query="
-    + "New York"
-    + "& historical_date ="
-    + str(date.today())
-)
+    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/cape%20town?unitGroup=metric&key=HFRTPS28BUTPP2XDVLZ2PLF92&contentType=json"
+).json()
 print(response)
+# file = json.load(response)
+# print(file)
 # Ask for time surfed.
 
 # Do something with response data.
 
+# Serializing json
+json_object = json.dumps(response, indent=4)
 
+# Writing to sample.json
+with open("visualcrossing.json", "w") as outfile:
+    outfile.write(json_object)
 # Ask for Spot surfed
 # Ask for Rating out of 10 (float)
 # Ask for comment

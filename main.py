@@ -5,3 +5,4 @@
 # Ask for comment.
 # Save to running CSV or google-sheet.
 # Print output so you can get more in touch with what is going on .
+user = "Luke"
